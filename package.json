@@ -1,5 +1,5 @@
 {
-  "name": "hapi-kafka-client",
+  "name": "hapi-kafka-plugin",
   "version": "1.0.0",
   "description": "A Kafka client plugin  for Hapi.js",
   "main": "lib/index.js",
