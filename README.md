@@ -29,30 +29,38 @@ The plugin require some paremeteres listed bellow:
 
 ## How to use it
 
-You have to register the plugin in the hapi.js server:
+You have to register the plugin in the hapi.js server, and then your are going to have a property in the plugin's servers that allows you to access to the kafka producer connection.
 
 ```javascript
 const KafkaPlugin = require('hapi-kafka-plugin')
 
 server.register({
-	register: KafkaPlugin,
-	options: {
-		host: 'localhost',
-		port: 9092,
-	}
+  register: KafkaPlugin,
+  options: {
+    host: 'localhost',
+    port: 9092,
+  }
 }).then(() => {
-	console.log('Kafka has been started')
+  console.log('Kafka has been started')
 
-	// And now its available in the server
-	server.plugins.kafka.producer('whatsapp',
-      null,
-      Buffer.from('hi from hooks-proxy'),
-      null,
-      Date.now(),)
+  // And now is available in the server
+  server.plugins.kafka.producer(
+    'topic',
+    null,
+    Buffer.from('hello world'),
+    null,
+    Date.now(),
+  )
 })
 ```
 
 ## Tests
+
+Before you run your tests, you have to run a Kafka container configured con Zookeper, you need to install [Docker](https://docker.com) and then run the [docker image of Kakfa](https://github.com/spotify/docker-kafka)
+
+```shell
+docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=`docker-machine ip \`docker-machine active\`` --env ADVERTISED_PORT=9092 spotify/kafka
+```
 
 Tests are written in [Jest](https://facebook.github.io/jest) to tests Javascript code.
 
