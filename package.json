@@ -1,0 +1,49 @@
+{
+  "name": "hapi-kafka-plugin",
+  "version": "1.0.0",
+  "description": "A Kafka client plugin  for Hapi.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yalochat/hapi-kafka.git"
+  },
+  "keywords": [
+    "kafka",
+    "producer",
+    "hapi.js",
+    "plugin"
+  ],
+  "author": "Yalo <eng@yalochat.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yalochat/hapi-kafka/issues"
+  },
+  "homepage": "https://github.com/yalochat/hapi-kafka#readme",
+  "devDependencies": {
+    "bluebird": "^3.5.1",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "husky": "^0.14.3",
+    "jest": "^22.0.4",
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.9.2"
+  },
+  "dependencies": {
+    "@types/jest": "^22.0.0",
+    "bucker": "^1.1.1",
+    "hapi": "^16.6.2",
+    "joi": "^13.0.2",
+    "node-rdkafka": "^2.2.1"
+  }
+}
